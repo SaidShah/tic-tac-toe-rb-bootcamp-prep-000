@@ -3,12 +3,21 @@
 
 WIN_COMBINATIONS=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
+<<<<<<< HEAD
+=======
+
+def is_array_empty(board)
+  board.all? {|c| (c==" ")||(c=="")}
+end
+
+>>>>>>> 6aeee668f4ec1fe554a41f849d6da336e7b250f1
 def full?(board)
  board.all? {|c| (c=="X")||(c=="O")}
 end
 
 def over?(board)
   in_progress= false
+<<<<<<< HEAD
   if(won?(board)||draw?(board)||full?(board))
  return true
  end
@@ -16,6 +25,15 @@ def over?(board)
   return false
   end
 
+=======
+  if((won?(board).class==Array)||(draw?(board)==true)||(full?(board)==true))
+ in_progress=true
+ end
+  if((full?(board)==false))
+  in_progress= false
+  end
+return in_progress
+>>>>>>> 6aeee668f4ec1fe554a41f849d6da336e7b250f1
 end
 
 def winner(board)
@@ -29,8 +47,12 @@ end
 
 def won?(board)
   
+<<<<<<< HEAD
   is_empty = board.none? { |c| c=="O" || c=="X" }
  if(is_empty)
+=======
+ if((is_array_empty(board)==true)||(board == nil))
+>>>>>>> 6aeee668f4ec1fe554a41f849d6da336e7b250f1
   return false
  else
 
@@ -48,6 +70,7 @@ def won?(board)
      if(((position_1=="X")&&(position_2=="X")&&(position_3=="X"))||((position_1=="O")&&(position_2=="O")&&(position_3=="O")))
       
     return win_combination
+<<<<<<< HEAD
 
     end
   
@@ -55,6 +78,18 @@ def won?(board)
   false
  end
 
+=======
+    
+    else
+      
+      false
+      
+    end
+  
+  end
+ end
+ false
+>>>>>>> 6aeee668f4ec1fe554a41f849d6da336e7b250f1
 end
 
 def position_taken?(board,index)
@@ -89,6 +124,10 @@ end
 
 def move(board, position,player)
  board[position]=player
+<<<<<<< HEAD
+=======
+ board
+>>>>>>> 6aeee668f4ec1fe554a41f849d6da336e7b250f1
 end
 
 def turn_count(board) 
@@ -121,7 +160,17 @@ def turn(board)
 end
 
 def draw?(board)
+<<<<<<< HEAD
  !won?(board) && full?(board) ? true: false
+=======
+ if !won?(board) && full?(board)
+ return true
+ elsif !won?(board)==false && !full?(board)
+ return false
+ else won?(board)
+   return false
+end
+>>>>>>> 6aeee668f4ec1fe554a41f849d6da336e7b250f1
 end
 
 def play(board)
@@ -133,7 +182,11 @@ end
 if(won?(board))
   puts "Congratulations #{winner(board)}!"
 else 
+<<<<<<< HEAD
   puts "Cat's Game!"
+=======
+  puts "Cats Game!"
+>>>>>>> 6aeee668f4ec1fe554a41f849d6da336e7b250f1
 end
 end
 
